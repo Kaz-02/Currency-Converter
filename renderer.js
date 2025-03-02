@@ -1,7 +1,7 @@
-const apiKey = "99eb221c47a98eeb5b779995";
-const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
-
 document.addEventListener("DOMContentLoaded", async () => {
+    const apiKey = await window.api.getApiKey(); // Electron から APIキーを取得
+    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
     const response = await fetch(apiUrl);
     const data = await response.json();
 
